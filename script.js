@@ -144,7 +144,7 @@ const calculateQuantities = (values) => {
   const meatKg = (values.men * 500 + values.women * 400 + values.children * 250) / 1000;
   const beerLiters = adults * 1.5;
   const nonAlcoholicLiters =
-    (adults * 0.4 + values.children * 0.5) * values.duration;
+    (adults * 0.3 + values.children * 0.4) * values.duration;
   const drinkCount = values.drinks.length;
   const litersPerDrink = drinkCount ? nonAlcoholicLiters / drinkCount : 0;
   const preferredMeats = new Set(["frango", "linguica"]);
@@ -170,7 +170,7 @@ const sideQuantities = (values) => {
   const adults = values.men + values.women;
   const quantities = {
     rice: { quantity: (adults * 150 + values.children * 75) / 1000, unit: "kg" },
-    "garlic-bread": { quantity: adults * 2 + values.children, unit: "unidades" },
+    "garlic-bread": { quantity: adults + values.children * 0.5, unit: "unidades" },
     farofa: { quantity: adults * 50 + values.children * 25, unit: "g" },
     vinaigrette: { quantity: adults * 50 + values.children * 25, unit: "g" },
     "potato-salad": { quantity: (adults * 150 + values.children * 100) / 1000, unit: "kg" },
