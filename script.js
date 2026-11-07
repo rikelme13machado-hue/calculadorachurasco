@@ -142,9 +142,9 @@ const calculateQuantities = (values) => {
 
   // Mantém as porções da calculadora original.
   const meatKg = (values.men * 500 + values.women * 400 + values.children * 250) / 1000;
-  const beerLiters = adults * 1.5;
+  const beerLiters = values.men * 1.5 + values.women;
   const nonAlcoholicLiters =
-    (adults * 0.3 + values.children * 0.4) * values.duration;
+    (adults * 0.2 + values.children * 0.3) * values.duration;
   const drinkCount = values.drinks.length;
   const litersPerDrink = drinkCount ? nonAlcoholicLiters / drinkCount : 0;
   const preferredMeats = new Set(["frango", "linguica"]);
