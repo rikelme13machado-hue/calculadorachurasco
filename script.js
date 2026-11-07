@@ -70,7 +70,7 @@ form.addEventListener("submit", (event) => {
   const women = Number(formData.get("women"));
   const children = Number(formData.get("children"));
 
-  const meatKg = (men * 400 + women * 350 + children * 200) / 1000;
+  const meatKg = (men * 500 + women * 400 + children * 250) / 1000;
   const beerLiters = (men + women) * 1.5;
   const softDrinkLiters = men + women + children;
   const totalPeople = men + women + children;
