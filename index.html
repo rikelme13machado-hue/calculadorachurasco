@@ -94,6 +94,16 @@
                 <input id="children" name="children" type="number" min="0" step="1" value="0" inputmode="numeric" required>
               </div>
             </div>
+            <fieldset class="side-options">
+              <legend>Acompanhamentos <span>(selecione os que deseja)</span></legend>
+              <div class="side-checkboxes">
+                <label><input type="checkbox" name="sides" value="rice"> Arroz</label>
+                <label><input type="checkbox" name="sides" value="garlic-bread"> Pão de alho</label>
+                <label><input type="checkbox" name="sides" value="farofa"> Farofa</label>
+                <label><input type="checkbox" name="sides" value="vinaigrette"> Vinagrete</label>
+                <label><input type="checkbox" name="sides" value="potato-salad"> Salada de maionese</label>
+              </div>
+            </fieldset>
             <button class="calculate-button" type="submit">
               Calcular meu churrasco <span aria-hidden="true">→</span>
             </button>
@@ -128,6 +138,31 @@
                 <div class="result-label"><h3>Carvão</h3><p>1 kg por kg de carne</p></div>
                 <strong id="charcoal-result">0 kg</strong>
               </article>
+              <article class="result-item" id="rice-result-item" hidden>
+                <span class="result-icon" aria-hidden="true">🍚</span>
+                <div class="result-label"><h3>Arroz</h3><p>150g por adulto, 75g por criança</p></div>
+                <strong id="rice-result">0 kg</strong>
+              </article>
+              <article class="result-item" id="garlic-bread-result-item" hidden>
+                <span class="result-icon" aria-hidden="true">🥖</span>
+                <div class="result-label"><h3>Pão de alho</h3><p>2 por adulto, 1 por criança</p></div>
+                <strong id="garlic-bread-result">0 unidades</strong>
+              </article>
+              <article class="result-item" id="farofa-result-item" hidden>
+                <span class="result-icon" aria-hidden="true">🍲</span>
+                <div class="result-label"><h3>Farofa</h3><p>50g por adulto, 25g por criança</p></div>
+                <strong id="farofa-result">0 g</strong>
+              </article>
+              <article class="result-item" id="vinaigrette-result-item" hidden>
+                <span class="result-icon" aria-hidden="true">🍅</span>
+                <div class="result-label"><h3>Vinagrete</h3><p>50g por adulto, 25g por criança</p></div>
+                <strong id="vinaigrette-result">0 g</strong>
+              </article>
+              <article class="result-item" id="potato-salad-result-item" hidden>
+                <span class="result-icon" aria-hidden="true">🥗</span>
+                <div class="result-label"><h3>Salada de maionese</h3><p>150g por adulto, 100g por criança</p></div>
+                <strong id="potato-salad-result">0 kg</strong>
+              </article>
             </div>
             <p class="results-note">Estimativa baseada nas quantidades por pessoa. Bom churrasco! 🔥</p>
           </section>
@@ -145,8 +180,8 @@
         </div>
         <button class="help-close" id="help-close" type="button" aria-label="Fechar ajuda">×</button>
       </div>
-      <p>Preencha seu nome e telefone para entrar. Depois, informe quantos homens, mulheres e crianças vão ao churrasco e toque em <strong>Calcular meu churrasco</strong>.</p>
-      <p>A calculadora estima carne, cerveja, refri/água e carvão pelas quantidades indicadas na tela. Seu nome e telefone não são enviados nem guardados.</p>
+      <p>Preencha seu nome e telefone para entrar. Depois, informe quantos homens, mulheres e crianças vão ao churrasco, selecione os acompanhamentos desejados e toque em <strong>Calcular meu churrasco</strong>.</p>
+      <p>A calculadora estima carne, bebidas, carvão e os acompanhamentos selecionados pelas quantidades indicadas na tela. Seu nome e telefone não são enviados nem guardados.</p>
     </div>
   </dialog>
 </body>
