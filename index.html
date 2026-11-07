@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#171311">
-  <meta name="description" content="Calcule a quantidade de carne, bebidas e carvão para o seu churrasco.">
-  <title>Churrasco na Medida | Calculadora</title>
+  <meta name="description" content="Planeje seu churrasco: calcule carnes, bebidas e acompanhamentos, organize compras e crie convites.">
+  <title>Churrasco na Medida | Organizador</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -15,9 +15,9 @@
 <body>
   <main class="page-shell">
     <header class="site-header">
-      <a class="brand" href="#" aria-label="Brasa & Prosa, início">
+      <a class="brand" href="#" aria-label="Churrasco na Medida, início">
         <span class="brand-mark" aria-hidden="true">🔥</span>
-        <span>brasa<span class="brand-accent"> &amp; prosa</span></span>
+        <span>churrasco <span class="brand-accent">na medida</span></span>
       </a>
       <nav class="header-actions" aria-label="Links e ajuda">
         <a class="instagram-link" href="https://www.instagram.com/rikelmepmachado/" target="_blank" rel="noopener noreferrer">
@@ -94,6 +94,19 @@
                 <input id="children" name="children" type="number" min="0" step="1" value="0" inputmode="numeric" required>
               </div>
             </div>
+            <fieldset class="side-options meat-options">
+              <legend>Carnes <span>(escolha os cortes)</span></legend>
+              <div class="side-checkboxes">
+                <label><input type="checkbox" name="meats" value="picanha" checked> Picanha</label>
+                <label><input type="checkbox" name="meats" value="alcatra"> Alcatra</label>
+                <label><input type="checkbox" name="meats" value="costela"> Costela</label>
+                <label><input type="checkbox" name="meats" value="maminha"> Maminha</label>
+                <label><input type="checkbox" name="meats" value="linguica" checked> Linguiça</label>
+                <label><input type="checkbox" name="meats" value="frango" checked> Frango</label>
+                <label><input type="checkbox" name="meats" value="coracao"> Coração de frango</label>
+                <label><input type="checkbox" name="meats" value="costelinha"> Costelinha suína</label>
+              </div>
+            </fieldset>
             <fieldset class="side-options">
               <legend>Acompanhamentos <span>(selecione os que deseja)</span></legend>
               <div class="side-checkboxes">
@@ -104,9 +117,33 @@
                 <label><input type="checkbox" name="sides" value="potato-salad"> Salada de maionese</label>
               </div>
             </fieldset>
+            <fieldset class="side-options">
+              <legend>Bebidas sem álcool <span>(a quantidade é dividida entre as opções)</span></legend>
+              <div class="side-checkboxes">
+                <label><input type="checkbox" name="drinks" value="water" checked> Água</label>
+                <label><input type="checkbox" name="drinks" value="soda" checked> Refrigerante</label>
+                <label><input type="checkbox" name="drinks" value="juice"> Suco</label>
+                <label><input type="checkbox" name="drinks" value="other"> Outras bebidas</label>
+              </div>
+              <div class="drink-settings">
+                <label class="form-field login-field" for="duration">
+                  Duração do churrasco (horas)
+                  <input id="duration" name="duration" type="number" min="1" max="24" step="1" value="4" required>
+                </label>
+                <label class="form-field login-field other-drink-field" for="other-drink-name">
+                  Nome da outra bebida
+                  <input id="other-drink-name" name="otherDrinkName" type="text" maxlength="40" placeholder="Ex.: água de coco" disabled>
+                </label>
+              </div>
+            </fieldset>
+            <label class="economy-option">
+              <input id="economy-mode" name="economyMode" type="checkbox">
+              <span><strong>Modo econômico</strong><small>Prioriza frango, linguiça, arroz e farofa para simplificar e reduzir desperdícios.</small></span>
+            </label>
             <button class="calculate-button" type="submit">
               Calcular meu churrasco <span aria-hidden="true">→</span>
             </button>
+            <p class="inline-status" id="calculator-status" role="status"></p>
           </form>
 
           <section id="results" class="results" aria-labelledby="results-title" aria-live="polite" hidden>
@@ -115,14 +152,16 @@
                 <p class="card-kicker">LISTA DE COMPRAS</p>
                 <h2 id="results-title">Pode preparar a brasa!</h2>
               </div>
-          <span class="results-people" id="people-count"></span>
+              <span class="results-people" id="people-count"></span>
             </div>
+            <p class="people-breakdown" id="people-breakdown"></p>
             <div class="result-list">
               <article class="result-item result-featured">
                 <span class="result-icon" aria-hidden="true">🥩</span>
-                <div class="result-label"><h3>Carne</h3><p>Para servir todo mundo</p></div>
+                <div class="result-label"><h3>Carnes selecionadas</h3><p>Quantidade total recomendada</p></div>
                 <strong id="meat-result">0 kg</strong>
               </article>
+              <div class="result-details" id="meat-breakdown" aria-label="Quantidade por tipo de carne"></div>
               <article class="result-item">
                 <span class="result-icon" aria-hidden="true">🍺</span>
                 <div class="result-label"><h3>Cerveja</h3><p>1,5 L por adulto</p></div>
@@ -130,9 +169,10 @@
               </article>
               <article class="result-item">
                 <span class="result-icon" aria-hidden="true">🥤</span>
-                <div class="result-label"><h3>Refri / água</h3><p>1 L por pessoa</p></div>
+                <div class="result-label"><h3>Bebidas sem álcool</h3><p>Estimativa por pessoa e duração</p></div>
                 <strong id="soft-drink-result">0 L</strong>
               </article>
+              <div class="result-details" id="drink-breakdown" aria-label="Quantidade por tipo de bebida"></div>
               <article class="result-item">
                 <span class="result-icon" aria-hidden="true">🪵</span>
                 <div class="result-label"><h3>Carvão</h3><p>1 kg por kg de carne</p></div>
@@ -165,6 +205,61 @@
               </article>
             </div>
             <p class="results-note">Estimativa baseada nas quantidades por pessoa. Bom churrasco! 🔥</p>
+            <section class="shopping-section" aria-labelledby="shopping-title">
+              <div class="section-heading">
+                <div><p class="card-kicker">TUDO EM UM SÓ LUGAR</p><h3 id="shopping-title">Lista de compras</h3></div>
+                <button class="secondary-button" id="save-plan-button" type="button">Salvar planejamento</button>
+              </div>
+              <form class="add-item-form" id="add-item-form">
+                <label class="visually-hidden" for="new-item-name">Produto</label>
+                <input id="new-item-name" name="itemName" type="text" maxlength="80" placeholder="Adicionar outro produto" required>
+                <label class="visually-hidden" for="new-item-quantity">Quantidade</label>
+                <input id="new-item-quantity" name="itemQuantity" type="number" min="0" step="any" value="1" required>
+                <label class="visually-hidden" for="new-item-unit">Unidade</label>
+                <input id="new-item-unit" name="itemUnit" type="text" maxlength="20" value="unidades" placeholder="Unidade">
+                <button class="secondary-button" type="submit">Adicionar</button>
+              </form>
+              <ul class="shopping-list" id="shopping-list" aria-label="Itens para comprar"></ul>
+              <div class="list-actions">
+                <button class="secondary-button" id="export-pdf-button" type="button">Exportar lista em PDF</button>
+                <span id="shopping-status" class="inline-status" role="status"></span>
+              </div>
+            </section>
+          </section>
+          <section id="extra-tools" class="extra-tools" hidden>
+            <section class="tool-section invitation-section" aria-labelledby="invitation-title">
+              <div class="section-heading">
+                <div><p class="card-kicker">CHAME A TURMA</p><h3 id="invitation-title">Convite para o churrasco</h3></div>
+                <span class="tool-icon" aria-hidden="true">💌</span>
+              </div>
+              <form id="invitation-form" class="invitation-form">
+                <label>Nome do churrasco<input name="eventName" type="text" maxlength="80" placeholder="Ex.: Churrasco de domingo" required></label>
+                <div class="invitation-fields">
+                  <label>Data<input name="eventDate" type="date" required></label>
+                  <label>Horário<input name="eventTime" type="time" required></label>
+                </div>
+                <label>Local<input name="eventLocation" type="text" maxlength="100" placeholder="Onde será?" required></label>
+                <label>Mensagem personalizada<textarea name="eventMessage" rows="3" maxlength="240" placeholder="Uma mensagem para os convidados (opcional)"></textarea></label>
+                <button class="calculate-button" type="submit">Preparar convite <span aria-hidden="true">→</span></button>
+              </form>
+              <article id="invitation-preview" class="invitation-preview" hidden aria-live="polite">
+                <p class="card-kicker">VOCÊ ESTÁ CONVIDADO(A)!</p>
+                <h4 id="preview-name"></h4>
+                <p id="preview-date"></p>
+                <p id="preview-location"></p>
+                <p id="preview-message"></p>
+                <a id="whatsapp-link" class="secondary-button whatsapp-button" href="#" target="_blank" rel="noopener noreferrer">Compartilhar pelo WhatsApp</a>
+              </article>
+            </section>
+            <section class="tool-section history-section" aria-labelledby="history-title">
+              <div class="section-heading">
+                <div><p class="card-kicker">GUARDADO NESTE NAVEGADOR</p><h3 id="history-title">Histórico de churrascos</h3></div>
+                <span class="tool-icon" aria-hidden="true">🗂️</span>
+              </div>
+              <p class="history-empty" id="history-empty">Seus planejamentos salvos aparecerão aqui.</p>
+              <ul class="history-list" id="history-list"></ul>
+              <p class="inline-status" id="storage-status" role="status"></p>
+            </section>
           </section>
         </section>
       </div>
@@ -180,8 +275,8 @@
         </div>
         <button class="help-close" id="help-close" type="button" aria-label="Fechar ajuda">×</button>
       </div>
-      <p>Preencha seu nome e telefone para entrar. Depois, informe quantos homens, mulheres e crianças vão ao churrasco, selecione os acompanhamentos desejados e toque em <strong>Calcular meu churrasco</strong>.</p>
-      <p>A calculadora estima carne, bebidas, carvão e os acompanhamentos selecionados pelas quantidades indicadas na tela. Seu nome e telefone não são enviados nem guardados.</p>
+      <p>Preencha seu nome e telefone para entrar. Depois, informe quantos adultos e crianças vão ao churrasco, escolha carnes, bebidas e acompanhamentos e toque em <strong>Calcular meu churrasco</strong>.</p>
+      <p>Você pode editar a lista de compras, preparar um convite para compartilhar pelo WhatsApp, salvar planejamentos neste navegador e imprimir a lista ou salvá-la como PDF. Seus dados de login não são enviados nem guardados.</p>
     </div>
   </dialog>
 </body>
