@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171311">
+  <meta name="description" content="Calcule a quantidade de carne, bebidas e carvão para o seu churrasco.">
+  <title>Churrasco na Medida | Calculadora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Brasa & Prosa, início">
+        <span class="brand-mark" aria-hidden="true">🔥</span>
+        <span>brasa<span class="brand-accent"> &amp; prosa</span></span>
+      </a>
+      <nav class="header-actions" aria-label="Links e ajuda">
+        <a class="instagram-link" href="https://www.instagram.com/rikelmepmachado/" target="_blank" rel="noopener noreferrer">
+          Siga-nos no Insta: <strong>rikelmepmachado</strong>
+        </a>
+        <button class="help-button" id="help-button" type="button">Ajuda</button>
+      </nav>
+    </header>
+
+    <section class="calculator-layout" aria-labelledby="page-title">
+      <div class="intro">
+        <p class="eyebrow"><span aria-hidden="true"></span> SEU CHURRASCO, SEM DESPERDÍCIO</p>
+        <h1 id="page-title">A conta certa<br>pra <span>reunir geral.</span></h1>
+        <p class="intro-copy">Conte quem vai chegar e a gente calcula o que não pode faltar na sua grelha.</p>
+        <div class="fire-illustration" aria-hidden="true">
+          <span class="fire-glow"></span>
+          <span class="fire-emoji">🔥</span>
+          <span class="fire-caption">Fogo aceso,<br>preocupação apagada.</span>
+        </div>
+      </div>
+
+      <div class="calculator-card">
+        <section id="login-panel" aria-labelledby="login-title">
+          <div class="card-heading">
+            <div>
+              <p class="card-kicker">ANTES DE COMEÇAR</p>
+              <h2 id="login-title">Faça seu login</h2>
+            </div>
+            <span class="people-icon" aria-hidden="true">♟</span>
+          </div>
+
+          <form id="login-form">
+            <div class="fields">
+              <div class="form-field login-field">
+                <label for="user-name">Seu nome</label>
+                <input id="user-name" name="userName" type="text" autocomplete="name" maxlength="80" placeholder="Como podemos te chamar?" required>
+              </div>
+              <div class="form-field login-field">
+                <label for="user-phone">Número de telefone</label>
+                <input id="user-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" minlength="8" maxlength="20" placeholder="(00) 00000-0000" required>
+              </div>
+            </div>
+            <button class="calculate-button" type="submit">
+              Entrar <span aria-hidden="true">→</span>
+            </button>
+          </form>
+          <p class="privacy-note"><span aria-hidden="true">✦</span> Seus dados ficam só nesta página e não são enviados.</p>
+        </section>
+
+        <section id="calculator-panel" hidden>
+          <p id="login-thanks" class="login-thanks" role="status"></p>
+          <div class="card-heading">
+            <div>
+              <p class="card-kicker">VAMOS COMEÇAR</p>
+              <h2>Quem vem pro churrasco?</h2>
+            </div>
+            <span class="people-icon" aria-hidden="true">♟</span>
+          </div>
+          <form id="calculator-form">
+            <div class="fields">
+              <div class="form-field">
+                <label for="men">Homens</label>
+                <span class="field-hint">400g de carne por pessoa</span>
+                <input id="men" name="men" type="number" min="0" step="1" value="0" inputmode="numeric" required>
+              </div>
+              <div class="form-field">
+                <label for="women">Mulheres</label>
+                <span class="field-hint">350g de carne por pessoa</span>
+                <input id="women" name="women" type="number" min="0" step="1" value="0" inputmode="numeric" required>
+              </div>
+              <div class="form-field">
+                <label for="children">Crianças</label>
+                <span class="field-hint">200g de carne por pessoa</span>
+                <input id="children" name="children" type="number" min="0" step="1" value="0" inputmode="numeric" required>
+              </div>
+            </div>
+            <button class="calculate-button" type="submit">
+              Calcular meu churrasco <span aria-hidden="true">→</span>
+            </button>
+          </form>
+
+          <section id="results" class="results" aria-labelledby="results-title" aria-live="polite" hidden>
+            <div class="results-heading">
+              <div>
+                <p class="card-kicker">LISTA DE COMPRAS</p>
+                <h2 id="results-title">Pode preparar a brasa!</h2>
+              </div>
+              <span class="results-people" id="people-count"></span>
+            </div>
+            <div class="result-list">
+              <article class="result-item result-featured">
+                <span class="result-icon" aria-hidden="true">🥩</span>
+                <div class="result-label"><h3>Carne</h3><p>Para servir todo mundo</p></div>
+                <strong id="meat-result">0 kg</strong>
+              </article>
+              <article class="result-item">
+                <span class="result-icon" aria-hidden="true">🍺</span>
+                <div class="result-label"><h3>Cerveja</h3><p>1,5 L por adulto</p></div>
+                <strong id="beer-result">0 L</strong>
+              </article>
+              <article class="result-item">
+                <span class="result-icon" aria-hidden="true">🥤</span>
+                <div class="result-label"><h3>Refri / água</h3><p>1 L por pessoa</p></div>
+                <strong id="soft-drink-result">0 L</strong>
+              </article>
+              <article class="result-item">
+                <span class="result-icon" aria-hidden="true">🪵</span>
+                <div class="result-label"><h3>Carvão</h3><p>1 kg por kg de carne</p></div>
+                <strong id="charcoal-result">0 kg</strong>
+              </article>
+            </div>
+            <p class="results-note">Estimativa baseada nas quantidades por pessoa. Bom churrasco! 🔥</p>
+          </section>
+        </section>
+      </div>
+    </section>
+    <footer class="site-footer">FEITO PRA QUEM GOSTA DE REUNIR EM VOLTA DA BRASA</footer>
+  </main>
+  <dialog id="help-dialog" aria-labelledby="help-title">
+    <div class="help-content">
+      <div class="help-heading">
+        <div>
+          <p class="card-kicker">PRECISA DE UMA MÃO?</p>
+          <h2 id="help-title">Como usar</h2>
+        </div>
+        <button class="help-close" id="help-close" type="button" aria-label="Fechar ajuda">×</button>
+      </div>
+      <p>Preencha seu nome e telefone para entrar. Depois, informe quantos homens, mulheres e crianças vão ao churrasco e toque em <strong>Calcular meu churrasco</strong>.</p>
+      <p>A calculadora estima carne, cerveja, refri/água e carvão pelas quantidades indicadas na tela. Seu nome e telefone não são enviados nem guardados.</p>
+    </div>
+  </dialog>
+</body>
+</html>
