@@ -404,7 +404,7 @@ const updateInvitationPreview = () => {
   document.querySelector("#preview-location").textContent = `Local: ${values.eventLocation}`;
   document.querySelector("#preview-message").textContent = values.eventMessage;
   const inviteText = [
-    values.eventName,
+    `🔥 ${values.eventName}`,
     `Data 🗓️: ${date} às ${values.eventTime}`,
     `Local📍: ${values.eventLocation}`,
     values.eventMessage,
