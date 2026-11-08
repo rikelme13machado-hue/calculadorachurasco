@@ -6,6 +6,18 @@
   <meta name="theme-color" content="#171311">
   <meta name="description" content="Planeje seu churrasco: calcule carnes, bebidas e acompanhamentos, organize compras e crie convites.">
   <title>Churrasco na Medida | Organizador</title>
+  <script>
+    (function (window, document, scriptTag, layerName, containerId) {
+      window[layerName] = window[layerName] || [];
+      window[layerName].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      const firstScript = document.getElementsByTagName(scriptTag)[0];
+      const gtmScript = document.createElement(scriptTag);
+      const layerQuery = layerName !== "dataLayer" ? `&l=${layerName}` : "";
+      gtmScript.async = true;
+      gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${containerId}${layerQuery}`;
+      firstScript.parentNode.insertBefore(gtmScript, firstScript);
+    })(window, document, "script", "dataLayer", "GTM-KH9G9QNR");
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -13,6 +25,10 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH9G9QNR"
+      height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe>
+  </noscript>
   <main class="page-shell">
     <header class="site-header">
       <a class="brand" href="#" aria-label="Churrasco na Medida, início">
