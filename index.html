@@ -4,8 +4,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#171311">
-  <meta name="description" content="Planeje seu churrasco: calcule carnes, bebidas e acompanhamentos, organize compras e crie convites.">
-  <title>Churrasco na Medida | Organizador</title>
+  <meta name="description" content="Use a calculadora de churrasco para estimar carne por pessoa, bebidas e acompanhamentos. Monte sua lista de compras e planeje sem desperdício.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://churaconamedida.netlify.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Churrasco na Medida">
+  <meta property="og:title" content="Calculadora de Churrasco | Churrasco na Medida">
+  <meta property="og:description" content="Calcule carne por pessoa, bebidas e acompanhamentos. Organize a lista de compras e planeje seu churrasco.">
+  <meta property="og:url" content="https://churaconamedida.netlify.app/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Calculadora de Churrasco | Churrasco na Medida">
+  <meta name="twitter:description" content="Calcule carne por pessoa, bebidas e acompanhamentos. Organize a lista de compras e planeje seu churrasco.">
+  <!-- Search Console: substitua pelo código fornecido pelo Google, se usar a verificação por meta tag:
+  <meta name="google-site-verification" content="SEU_CODIGO_DE_VERIFICACAO">
+  -->
+  <title>Calculadora de Churrasco | Churrasco na Medida</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Churrasco na Medida",
+          "url": "https://churaconamedida.netlify.app/",
+          "description": "Calculadora online para estimar carnes, bebidas e acompanhamentos e organizar listas para churrasco.",
+          "applicationCategory": "FoodApplication",
+          "operatingSystem": "Qualquer dispositivo com navegador",
+          "inLanguage": "pt-BR",
+          "featureList": [
+            "Estimativa de carnes por quantidade de adultos e crianças",
+            "Estimativa de bebidas conforme participantes e duração",
+            "Lista de compras editável",
+            "Convite para compartilhar pelo WhatsApp",
+            "Histórico local de planejamentos"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quanto de carne para 20 pessoas?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Como estimativa simples, considerando 400 g por adulto e sem crianças, 20 pessoas correspondem a cerca de 8 kg de carne. A calculadora detalha a estimativa por homens, mulheres e crianças."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Como calcular bebidas para churrasco?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A estimativa desta calculadora considera 200 ml de bebida sem álcool por adulto e 300 ml por criança, por hora. Multiplique pela duração e divida o total entre as bebidas selecionadas."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quanta carne calcular por pessoa?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A estimativa usada na calculadora é 500 g por homem, 400 g por mulher e 250 g por criança de até 12 anos. São referências ajustáveis ao perfil do grupo e aos acompanhamentos."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Como evitar desperdício no churrasco?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Confirme o número de convidados, escolha apenas os cortes e acompanhamentos que pretende servir e ajuste a estimativa à duração do evento. A lista editável ajuda a acompanhar o que já foi comprado."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
   <script>
     (function (window, document, scriptTag, layerName, containerId) {
       window[layerName] = window[layerName] || [];
@@ -43,11 +117,11 @@
       </nav>
     </header>
 
-    <section class="calculator-layout" aria-labelledby="page-title">
+    <section class="calculator-layout" id="calculadora" aria-labelledby="page-title">
       <div class="intro">
         <p class="eyebrow"><span aria-hidden="true"></span> SEU CHURRASCO, SEM DESPERDÍCIO</p>
-        <h1 id="page-title">A conta certa<br>pra <span>reunir geral.</span></h1>
-        <p class="intro-copy">Conte quem vai chegar e a gente calcula o que não pode faltar na sua grelha.</p>
+        <h1 id="page-title">Calculadora de<br>churrasco pra <span>reunir geral.</span></h1>
+        <p class="intro-copy">Calcule carne por pessoa, bebidas e acompanhamentos e descubra o que não pode faltar na grelha.</p>
         <div class="fire-illustration" aria-hidden="true">
           <span class="fire-glow"></span>
           <span class="fire-emoji">🔥</span>
@@ -279,6 +353,81 @@
           </section>
         </section>
       </div>
+    </section>
+    <section class="seo-content" aria-labelledby="planning-guide-title">
+      <header class="seo-content-heading">
+        <p class="eyebrow"><span aria-hidden="true"></span> PLANEJE COM MAIS SEGURANÇA</p>
+        <h2 id="planning-guide-title">Calculadora de churrasco: guia de quantidades e organização</h2>
+        <p>Use estas referências para estimar a quantidade de carne por pessoa, calcular bebidas para churrasco e montar uma lista de compras. São estimativas para ajudar no planejamento; o apetite do grupo, o tempo do evento e os acompanhamentos também fazem diferença.</p>
+        <a class="secondary-button" href="#calculadora">Usar a calculadora</a>
+      </header>
+
+      <section class="guide-section" aria-labelledby="meat-guide-title">
+        <h3 id="meat-guide-title">Quantidade de carne por pessoa</h3>
+        <p>A calculadora considera <strong>500 g por homem, 400 g por mulher e 250 g por criança de até 12 anos</strong>. Esses valores são referências de planejamento, não uma regra fixa. Se houver muitos acompanhamentos, você pode ajustar as quantidades na lista de compras.</p>
+        <p>Para uma conta rápida com adultos, a tabela abaixo usa uma referência média de <strong>400 g por adulto</strong>, sem incluir crianças. Para um cálculo mais ajustado ao grupo, informe homens, mulheres e crianças na calculadora.</p>
+      </section>
+
+      <section class="guide-section" aria-labelledby="people-table-title">
+        <h3 id="people-table-title">Quanto de carne para 10, 20, 30 ou 50 pessoas?</h3>
+        <div class="seo-table-wrap">
+          <table class="seo-table">
+            <caption>Estimativa de carne considerando 400 g por adulto e nenhum participante criança</caption>
+            <thead>
+              <tr><th scope="col">Adultos</th><th scope="col">Carne estimada</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">10 pessoas</th><td>4 kg</td></tr>
+              <tr><th scope="row">20 pessoas</th><td>8 kg</td></tr>
+              <tr><th scope="row">30 pessoas</th><td>12 kg</td></tr>
+              <tr><th scope="row">50 pessoas</th><td>20 kg</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Esses totais são uma estimativa geral. Crianças, diferentes porções por adulto e a quantidade de acompanhamentos alteram o resultado.</p>
+      </section>
+
+      <section class="guide-section" aria-labelledby="drinks-guide-title">
+        <h3 id="drinks-guide-title">Como calcular bebidas para churrasco</h3>
+        <p>Considere a duração do encontro: a estimativa usada aqui é de <strong>200 ml de bebida sem álcool por adulto e 300 ml por criança, por hora</strong>. Multiplique esses valores pelo número de participantes e pelas horas planejadas. Depois, o total é distribuído entre água, refrigerante, suco e outras bebidas selecionadas.</p>
+        <p>A quantidade de cerveja é calculada separadamente: 1,5 L por homem e 1 L por mulher. Você pode ajustar os itens e as quantidades diretamente na lista de compras.</p>
+      </section>
+
+      <section class="guide-section" aria-labelledby="shopping-guide-title">
+        <h3 id="shopping-guide-title">Dicas para organizar a lista de compras</h3>
+        <ul>
+          <li>Confirme o número de adultos e crianças antes de calcular as porções.</li>
+          <li>Escolha os cortes e acompanhamentos que realmente pretende servir.</li>
+          <li>Considere a duração do evento ao estimar as bebidas.</li>
+          <li>Use a lista para ajustar quantidades, marcar o que já foi comprado e adicionar outros itens.</li>
+          <li>Reaproveite um planejamento salvo neste navegador para organizar outro encontro.</li>
+        </ul>
+      </section>
+
+      <section class="guide-section" aria-labelledby="waste-guide-title">
+        <h3 id="waste-guide-title">Como evitar desperdícios</h3>
+        <p>Planeje as porções a partir da quantidade de convidados e evite escolher mais variedades de carne e acompanhamentos do que pretende preparar. As estimativas são um ponto de partida: ajuste-as conforme os hábitos do grupo e o que será servido. Guarde sobras perecíveis em recipientes limpos e mantenha-as refrigeradas.</p>
+      </section>
+
+      <section class="guide-section faq-section" aria-labelledby="faq-title">
+        <h2 id="faq-title">Perguntas frequentes sobre churrasco</h2>
+        <article class="faq-item">
+          <h3>Quanto de carne para 20 pessoas?</h3>
+          <p>Como estimativa simples, considerando 400 g por adulto e sem crianças, 20 pessoas correspondem a cerca de 8 kg de carne. A calculadora detalha a estimativa por homens, mulheres e crianças.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Como calcular bebidas para churrasco?</h3>
+          <p>A estimativa desta calculadora considera 200 ml de bebida sem álcool por adulto e 300 ml por criança, por hora. Multiplique pela duração e divida o total entre as bebidas selecionadas.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Quanta carne calcular por pessoa?</h3>
+          <p>A estimativa usada na calculadora é 500 g por homem, 400 g por mulher e 250 g por criança de até 12 anos. São referências ajustáveis ao perfil do grupo e aos acompanhamentos.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Como evitar desperdício no churrasco?</h3>
+          <p>Confirme o número de convidados, escolha apenas os cortes e acompanhamentos que pretende servir e ajuste a estimativa à duração do evento. A lista editável ajuda a acompanhar o que já foi comprado.</p>
+        </article>
+      </section>
     </section>
     <footer class="site-footer">FEITO PRA QUEM GOSTA DE REUNIR EM VOLTA DA BRASA</footer>
   </main>

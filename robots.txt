@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://churaconamedida.netlify.app/sitemap.xml
