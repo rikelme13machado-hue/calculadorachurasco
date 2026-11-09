@@ -201,7 +201,7 @@ const buildShoppingList = (values, calculation) => {
   sideQuantities(values).forEach((side) =>
     addItem(side.name, side.quantity, side.unit, "Acompanhamentos"),
   );
-  addItem("Carvão", calculation.meatKg, "kg", "Churrasco");
+  addItem("Carvão", calculation.meatKg * 1.1, "kg", "Churrasco");
   addItem("Sal grosso", calculation.meatKg * 0.03, "kg", "Churrasco");
   addItem("Pratos descartáveis", calculation.totalPeople * 2, "unidades", "Descartáveis");
   addItem("Copos descartáveis", calculation.totalPeople * 4, "unidades", "Descartáveis");
@@ -255,7 +255,8 @@ const renderBreakdowns = (calculation) => {
   document.querySelector("#beer-result").textContent = `${formatQuantity(calculation.beerLiters)} L`;
   document.querySelector("#soft-drink-result").textContent =
     `${formatQuantity(calculation.nonAlcoholicLiters)} L`;
-  document.querySelector("#charcoal-result").textContent = `${formatQuantity(calculation.meatKg)} kg`;
+  document.querySelector("#charcoal-result").textContent =
+    `${formatQuantity(calculation.meatKg * 1.1)} kg`;
   document.querySelector("#people-count").textContent =
     `${calculation.totalPeople} ${calculation.totalPeople === 1 ? "pessoa" : "pessoas"}`;
 
